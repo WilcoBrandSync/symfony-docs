@@ -37,10 +37,10 @@ Take the following ``access_control`` entries as an example:
         security:
             # ...
             access_control:
-                - { path: ^/admin, roles: ROLE_USER_IP, ip: 127.0.0.1 }
-                - { path: ^/admin, roles: ROLE_USER_HOST, host: symfony\.com$ }
-                - { path: ^/admin, roles: ROLE_USER_METHOD, methods: [POST, PUT] }
-                - { path: ^/admin, roles: ROLE_USER }
+                  - { path: ^/admin, roles: [ROLE_USER_IP], ip: 127.0.0.1 }
+                  - { path: ^/admin, roles: [ROLE_USER_HOST], host: symfony\.com$ }
+                - { path: ^/admin, roles: [ROLE_USER_METHOD], methods: [POST, PUT] }
+                - { path: ^/admin, roles: [ROLE_USER] }
 
     .. code-block:: xml
 
@@ -176,8 +176,8 @@ pattern so that it is only accessible by requests from the local server itself:
             # ...
             access_control:
                 #
-                - { path: ^/internal, roles: IS_AUTHENTICATED_ANONYMOUSLY, ips: [127.0.0.1, ::1] }
-                - { path: ^/internal, roles: ROLE_NO_ACCESS }
+                - { path: ^/internal, roles: [IS_AUTHENTICATED_ANONYMOUSLY], ips: [127.0.0.1, ::1] }
+                - { path: ^/internal, roles: [ROLE_NO_ACCESS] }
 
     .. code-block:: xml
 
